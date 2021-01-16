@@ -83,6 +83,10 @@
     "emoji": "ios",
     "role": "ios"
   },
+  {
+    "emoji": "aix",
+    "role": "aix"
+  },
 
   {
     "emoji": "docker",
