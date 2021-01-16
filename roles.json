@@ -124,5 +124,9 @@
   {
     "emoji": "qa",
     "role": "qa"
+  },
+  {
+    "emoji": "htmlcss",
+    "role": "html/css"
   }
 ]
