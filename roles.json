@@ -62,7 +62,11 @@
     "emoji": "elm",
     "role": "elm"
   },
-
+  {
+    "emoji": "svelte",
+    "role": "svelte"
+  },
+  
   {
     "emoji": "windows",
     "role": "windows"
