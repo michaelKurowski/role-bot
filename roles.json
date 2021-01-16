@@ -58,6 +58,10 @@
     "emoji": "angularjs",
     "role": "angularjs"
   },
+  {
+    "emoji": "elm",
+    "role": "elm"
+  },
 
   {
     "emoji": "windows",
