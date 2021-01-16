@@ -1,6 +1,120 @@
 [
+
+  {
+    "emoji": "js",
+    "role": "javascript"
+  },
+  {
+    "emoji": "ts",
+    "role": "typescript"
+  },
+  {
+    "emoji": "cpp",
+    "role": "c++"
+  },
+  {
+    "emoji": "java",
+    "role": "java"
+  },
+  {
+    "emoji": "webgl",
+    "role": "webgl"
+  },
+  {
+    "emoji": "c_",
+    "role": "c#"
+  },
+  {
+    "emoji": "webasm",
+    "role": "webasm"
+  },
+
+  {
+    "emoji": "nodejs",
+    "role": "nodejs"
+  },
+  {
+    "emoji": "deno",
+    "role": "deno"
+  },
+
+  {
+    "emoji": "vuejs",
+    "role": "vuejs"
+  },
+  {
+    "emoji": "react",
+    "role": "react"
+  },
+  {
+    "emoji": "react",
+    "role": "react"
+  },
+  {
+    "emoji": "angular",
+    "role": "angular"
+  },
+  {
+    "emoji": "angularjs",
+    "role": "angularjs"
+  },
+
+  {
+    "emoji": "windows",
+    "role": "windows"
+  },
   {
     "emoji": "linux",
     "role": "linux"
+  },
+  {
+    "emoji": "macos",
+    "role": "macos"
+  },
+  {
+    "emoji": "android",
+    "role": "android"
+  },
+  {
+    "emoji": "ios",
+    "role": "ios"
+  },
+
+  {
+    "emoji": "docker",
+    "role": "docker"
+  },
+  {
+    "emoji": "kubernates",
+    "role": "kubernates"
+  },
+  {
+    "emoji": "aws",
+    "role": "aws"
+  },
+
+  {
+    "emoji": "raster",
+    "role": "raster graphics"
+  },
+  {
+    "emoji": "vector",
+    "role": "vector graphics"
+  },
+  {
+    "emoji": "3d",
+    "role": "3d graphics"
+  },
+  {
+    "emoji": "digitalpainting",
+    "role": "digital painting"
+  },
+  {
+    "emoji": "ui",
+    "role": "ui/ux"
+  },
+  {
+    "emoji": "qa",
+    "role": "qa"
   }
 ]
