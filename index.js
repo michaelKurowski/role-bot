@@ -30,9 +30,6 @@ client.on('ready', () => {
       console.warn('Config entry in roles.json ', roleEntry, ' couldn\'t find relevelant emoji on the server')
     }
   })
-
-
-  console.log(client.guilds)
 });
  
 
@@ -97,7 +94,6 @@ async function mapEmojiToRole(message, emoji) {
   let roleEntry = [...serverCachedRoles.cache].find(([roleId, role]) => role.name === roleName)
   const role = roleEntry && roleEntry[1]
   if (role) return role
-  console.log(message.guild.roles)
   try {
     role = message.guild.roles.find(role => role.name === roleName)
   } catch (err) {
