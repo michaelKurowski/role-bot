@@ -100,7 +100,6 @@ async function getMessageFromReaction(reaction) {
 			return;
 		}
   }
-  console.log(reaction.users.cache)
   return reaction.message
 
 }
