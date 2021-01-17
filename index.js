@@ -33,23 +33,40 @@ client.on('ready', () => {
 });
  
 
-client.on('messageReactionRemove', async (reaction) => {
-  const { member, role } = await pullRoleManagementData(reaction)
+client.on('messageReactionRemove', async (reaction, user) => {
+  let result
+  try {
+    result = await pullRoleManagementData(reaction, user)
+  } catch (err) {
+    console.warn(err)
+    return
+  }
+  const { member, role } = result
+  console.log(`Removing role ${role.name} from ${member.user.username}`)
   member.roles.remove(role).catch(err => console.error(err))
 })
 
-client.on('messageReactionAdd', async (reaction) => {
-  const { member, role } = await pullRoleManagementData(reaction)
+client.on('messageReactionAdd', async (reaction, user) => {
+  let result
+  try {
+    result = await pullRoleManagementData(reaction, user)
+  } catch (err) {
+    console.warn(err)
+    return
+  }
+  const { member, role } = result
+
+  console.log(`Adding role ${role.name} to ${member.user.username}`)
   member.roles.add(role).catch(err => console.error(err))
 });
 
 
-async function pullRoleManagementData(reaction) {
+async function pullRoleManagementData(reaction, user) {
   const message = await getMessageFromReaction(reaction)
   if (!message) throw new Error('Failed to pull message')
-  if (!isMessageIdWhitelisted(message.id)) return
+  if (!isMessageIdWhitelisted(message.id)) throw new Error(`Message ID ${message.id} does not match the whitelisted messages: ${process.env.ROLE_MESSAGE_IDS}`)
 
-  const member = await getMemberFromMessage(message)
+  const member = await getMemberFromUser(user, message.guild)
   if (!member) throw new Error('Failed to pull member')
 
   const emoji = reaction._emoji.name
@@ -62,8 +79,11 @@ function isMessageIdWhitelisted(messageId) {
   return roleMessageIdsList.includes(messageId)
 }
 
-async function getMemberFromMessage(message) {
-  const member = message.guild.members.cache.get(message.author.id)
+async function getMemberFromUser(user, guild) {
+  let member = guild.members.cache.get(user.id)
+  if (!member) {
+    member = guild.members.fetch({ user, force: true })
+  }
   if (!member) {
     console.error('Cannot map user to member')
     return
@@ -80,6 +100,7 @@ async function getMessageFromReaction(reaction) {
 			return;
 		}
   }
+  console.log(reaction.users.cache)
   return reaction.message
 
 }
@@ -97,7 +118,7 @@ async function mapEmojiToRole(message, emoji) {
   try {
     role = message.guild.roles.find(role => role.name === roleName)
   } catch (err) {
-    console.log(err)
+    console.log('Failed to match a role')
     return null
   }
   if (!role) return null
